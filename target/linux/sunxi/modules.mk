@@ -84,6 +84,16 @@ endef
 
 $(eval $(call KernelPackage,sun4i-emac))
 
+define KernelPackage/sun8i-emac
+  SUBMENU:=$(NETWORK_DEVICES_MENU)
+  TITLE:=AllWinner sun8i family (H3, A23...) EMAC Ethernet support
+  DEPENDS:=@TARGET_sunxi +LINUX_4_4:kmod-of-mdio +LINUX_4_4:kmod-libphy
+  KCONFIG:=CONFIG_SUN8I_EMAC
+  FILES:=$(LINUX_DIR)/drivers/net/ethernet/allwinner/sun8i-emac.ko
+  AUTOLOAD:=$(call AutoProbe,sun8i-emac)
+endef
+
+$(eval $(call KernelPackage,sun8i-emac))
 
 define KernelPackage/wdt-sunxi
     SUBMENU:=$(OTHER_MENU)
