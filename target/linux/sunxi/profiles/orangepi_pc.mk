@@ -8,7 +8,7 @@
 define Profile/orangepi_pc
 	NAME:=orangepi_pc
 	PACKAGES:=\
-		kmod-rtc-sunxi uboot-sunxi-orangepi_pc
+		kmod-rtc-sunxi uboot-sunxi-orangepi_pc kmod-sun8i-emac
 endef
 
 define Profile/orangepi_pc/Description
